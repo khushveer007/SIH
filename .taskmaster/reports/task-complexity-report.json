@@ -1,0 +1,93 @@
+{
+	"meta": {
+		"generatedAt": "2025-08-31T23:00:22.553Z",
+		"tasksAnalyzed": 10,
+		"totalTasks": 10,
+		"analysisCount": 10,
+		"thresholdScore": 5,
+		"projectName": "Taskmaster",
+		"usedResearch": false
+	},
+	"complexityAnalysis": [
+		{
+			"taskId": 1,
+			"taskTitle": "Setup Project Repository",
+			"complexityScore": 6,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Break down into subtasks for Git repository creation, folder structure setup, README creation, and CI/CD pipeline configuration.",
+			"reasoning": "The task involves multiple steps including repository setup, folder structuring, and CI/CD pipelines, each requiring distinct expertise."
+		},
+		{
+			"taskId": 2,
+			"taskTitle": "Backend Server Setup",
+			"complexityScore": 7,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Divide into subtasks for Node.js installation, Express.js setup, middleware configuration, MongoDB connection, and local server testing.",
+			"reasoning": "The task requires both backend setup and database integration, which are moderately complex and involve multiple components."
+		},
+		{
+			"taskId": 3,
+			"taskTitle": "User Authentication APIs",
+			"complexityScore": 8,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Split into subtasks for endpoint creation, bcrypt integration, JWT implementation, validation logic, unit testing, and Postman testing.",
+			"reasoning": "Authentication involves security-sensitive operations like hashing and token generation, requiring thorough validation and testing."
+		},
+		{
+			"taskId": 4,
+			"taskTitle": "Frontend Setup",
+			"complexityScore": 5,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Break into subtasks for React.js initialization, React Router setup, Material-UI installation, and placeholder page creation.",
+			"reasoning": "The task is straightforward but involves multiple tools and libraries that need to be configured properly."
+		},
+		{
+			"taskId": 5,
+			"taskTitle": "Role-Based Dashboards",
+			"complexityScore": 6,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Divide into subtasks for dashboard component creation, React Router configuration, role-based routing logic, and placeholder content setup.",
+			"reasoning": "The task requires implementing role-based logic and routing, which adds moderate complexity to the frontend development."
+		},
+		{
+			"taskId": 6,
+			"taskTitle": "College and Job Models",
+			"complexityScore": 7,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Split into subtasks for schema design, field validation, mock data insertion, unit testing, and database verification.",
+			"reasoning": "Defining schemas and ensuring proper validation and storage in MongoDB involves significant backend complexity."
+		},
+		{
+			"taskId": 7,
+			"taskTitle": "College Agent Dashboard Features",
+			"complexityScore": 8,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Break into subtasks for backend API development, frontend form creation, course management logic, API testing, form submission testing, and UI validation.",
+			"reasoning": "The task combines backend API development and frontend form creation, requiring coordination between both layers."
+		},
+		{
+			"taskId": 8,
+			"taskTitle": "HR Dashboard Features",
+			"complexityScore": 8,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Divide into subtasks for backend API development, frontend form creation, job posting logic, application retrieval logic, API testing, and UI validation.",
+			"reasoning": "Similar to the College Agent dashboard, this task involves backend and frontend integration with distinct features for HRs."
+		},
+		{
+			"taskId": 9,
+			"taskTitle": "Student Dashboard Features",
+			"complexityScore": 9,
+			"recommendedSubtasks": 7,
+			"expansionPrompt": "Split into subtasks for search component creation, filtering logic implementation, mock data setup, UI design, testing filters, and result validation.",
+			"reasoning": "The task involves complex filtering logic and dynamic data handling, which increases its complexity significantly."
+		},
+		{
+			"taskId": 10,
+			"taskTitle": "Notification System",
+			"complexityScore": 7,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Break into subtasks for backend event handling, notification trigger logic, frontend notification display, mock event testing, and UI validation.",
+			"reasoning": "Real-time notifications require backend event handling and frontend integration, adding moderate complexity to the task."
+		}
+	]
+}
