@@ -1,0 +1,140 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Setup Project Repository",
+        "description": "Initialize the project repository with proper folder structure for frontend and backend.",
+        "details": "Create a Git repository and initialize it with folders for frontend (React.js) and backend (Node.js). Add README files and set up basic CI/CD pipelines using GitHub Actions.",
+        "testStrategy": "Verify that the repository is accessible, CI/CD pipelines trigger correctly, and the folder structure is consistent with the PRD.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Backend Server Setup",
+        "description": "Set up the backend server using Node.js and Express.js.",
+        "details": "Install Node.js and Express.js. Create the server entry point and configure middleware for JSON parsing and CORS. Connect the server to MongoDB Atlas using Mongoose.",
+        "testStrategy": "Run the server locally and verify that it connects to MongoDB Atlas successfully. Test basic API responses using Postman.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "User Authentication APIs",
+        "description": "Develop APIs for user registration and login.",
+        "details": "Implement POST /api/auth/register and POST /api/auth/login endpoints. Use bcrypt for password hashing and JWT for authentication tokens.",
+        "testStrategy": "Write unit tests for the endpoints to ensure proper validation, hashing, and token generation. Test with Postman for end-to-end functionality.",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Frontend Setup",
+        "description": "Initialize the React.js frontend with routing and basic components.",
+        "details": "Set up a React.js project using Create React App. Install React Router for navigation and Material-UI for components. Create placeholder pages for login, registration, and dashboards.",
+        "testStrategy": "Run the frontend locally and verify navigation between pages. Ensure Material-UI components render correctly.",
+        "priority": "medium",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Role-Based Dashboards",
+        "description": "Develop basic dashboards for Students, College Agents, and HR/Recruiters.",
+        "details": "Create React components for each dashboard. Use React Router to route users to their respective dashboards based on their role after login.",
+        "testStrategy": "Test navigation to dashboards based on user roles. Verify that placeholder content is displayed correctly.",
+        "priority": "medium",
+        "dependencies": [
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "College and Job Models",
+        "description": "Implement MongoDB models for colleges and jobs.",
+        "details": "Define schemas for College and Job models in Mongoose. Include fields as specified in the PRD, such as eligibility, cut-offs, and skills required.",
+        "testStrategy": "Write unit tests for schema validation. Insert mock data and verify that it is stored correctly in MongoDB.",
+        "priority": "medium",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "College Agent Dashboard Features",
+        "description": "Enable College Agents to create and manage college profiles and courses.",
+        "details": "Develop backend APIs for College Agents to add and manage courses. Create frontend forms for College Agents to input course details.",
+        "testStrategy": "Test API endpoints for course creation and management. Verify that the frontend form submits data correctly and displays saved courses.",
+        "priority": "medium",
+        "dependencies": [
+          6
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "HR Dashboard Features",
+        "description": "Enable HRs to post job listings and manage applications.",
+        "details": "Develop backend APIs for HRs to post jobs and view applications. Create frontend forms for job posting and application management.",
+        "testStrategy": "Test API endpoints for job posting and application retrieval. Verify that the frontend form submits data correctly and displays job listings.",
+        "priority": "medium",
+        "dependencies": [
+          6
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Student Dashboard Features",
+        "description": "Enable Students to search and view colleges and jobs.",
+        "details": "Develop frontend components for Students to search colleges and jobs. Implement filtering functionality based on marks, location, and skills.",
+        "testStrategy": "Test search and filtering functionality with mock data. Verify that results are displayed correctly based on filter criteria.",
+        "priority": "medium",
+        "dependencies": [
+          7,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "Notification System",
+        "description": "Implement a notification system for real-time alerts.",
+        "details": "Develop backend logic to trigger notifications based on events like new job postings or student applications. Create frontend components to display notifications.",
+        "testStrategy": "Test notification triggers with mock events. Verify that notifications are displayed correctly on the frontend.",
+        "priority": "low",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-08-31T22:58:00.456Z",
+      "updated": "2025-08-31T22:58:00.456Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

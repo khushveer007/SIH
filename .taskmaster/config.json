@@ -5,14 +5,14 @@
       "modelId": "gpt-4o",
       "maxTokens": 16384,
       "temperature": 0.2,
-        "baseURL": "https://khush-me6sc92f-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview"
+      "BaseURL": "https://khush-me6sc92f-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-12-01-preview"
     },
     "research": {
       "provider": "azure",
       "modelId": "o4-mini",
       "maxTokens": 8700,
       "temperature": 0.1,
-        "baseURL": "https://khush-me6sc92f-eastus2.cognitiveservices.azure.com/openai/deployments/o4-mini/chat/completions?api-version=2025-01-01-preview"
+      "BaseURL": "https://khush-me6sc92f-eastus2.cognitiveservices.azure.com/openai/deployments/o4-mini/chat/completions?api-version=2024-12-01-preview"
     },
     "fallback": {
       "provider": "anthropic",
@@ -32,7 +32,7 @@
     "bedrockBaseURL": "https://bedrock.us-east-1.amazonaws.com",
     "responseLanguage": "English",
     "defaultTag": "master",
-    "azureOpenaiBaseURL": "https://khush-me6sc92f-eastus2.cognitiveservices.azure.com/",
+    "azureBaseURL": "https://khush-me6sc92f-eastus2.cognitiveservices.azure.com/openai/deployments",
     "userId": "1234567890"
   },
   "claudeCode": {}
