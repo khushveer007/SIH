@@ -10,6 +10,9 @@ dotenv.config();
 // Import database configuration
 const connectDB = require('./config/database');
 
+// Import models to register them with Mongoose
+const User = require('./models/User');
+
 // Create Express app
 const app = express();
 
