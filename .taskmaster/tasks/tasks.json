@@ -10,7 +10,53 @@
         "priority": "high",
         "dependencies": [],
         "status": "pending",
-        "subtasks": []
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create Git Repository",
+            "description": "Initialize a new Git repository for the project.",
+            "dependencies": [],
+            "details": "Create a new repository on GitHub. Clone the repository locally and initialize it with a .gitignore file suitable for Node.js and React.js projects.",
+            "status": "pending",
+            "testStrategy": "Verify that the repository is accessible on GitHub and can be cloned locally."
+          },
+          {
+            "id": 2,
+            "title": "Set Up Folder Structure",
+            "description": "Create folders for frontend and backend within the repository.",
+            "dependencies": [],
+            "details": "Inside the cloned repository, create two main folders: 'frontend' for React.js and 'backend' for Node.js. Add placeholder README.md files in each folder to describe their purpose.",
+            "status": "pending",
+            "testStrategy": "Ensure that the folder structure matches the requirements and README files are present in both folders."
+          },
+          {
+            "id": 3,
+            "title": "Initialize Frontend and Backend Projects",
+            "description": "Set up the base projects for frontend and backend development.",
+            "dependencies": [],
+            "details": "Navigate to the 'frontend' folder and initialize a React.js project using Create React App. Navigate to the 'backend' folder and initialize a Node.js project using npm init. Add basic dependencies like express for backend and react-router for frontend.",
+            "status": "pending",
+            "testStrategy": "Verify that both projects can be started independently without errors."
+          },
+          {
+            "id": 4,
+            "title": "Add CI/CD Pipelines",
+            "description": "Set up GitHub Actions workflows for CI/CD pipelines.",
+            "dependencies": [],
+            "details": "Create GitHub Actions YAML files in the repository's '.github/workflows' folder. Configure workflows to run tests and build processes for both frontend and backend on each push to the main branch.",
+            "status": "pending",
+            "testStrategy": "Push changes to the repository and verify that the workflows execute successfully."
+          },
+          {
+            "id": 5,
+            "title": "Update Repository Documentation",
+            "description": "Add a main README file to the repository and update README files in frontend and backend folders.",
+            "dependencies": [],
+            "details": "Write a main README.md file at the root of the repository to describe the project, its folder structure, and setup instructions. Update the README files in 'frontend' and 'backend' folders with specific setup and usage instructions for each project.",
+            "status": "pending",
+            "testStrategy": "Ensure that all README files are clear, complete, and provide accurate setup instructions."
+          }
+        ]
       },
       {
         "id": 2,
@@ -23,7 +69,61 @@
           1
         ],
         "status": "pending",
-        "subtasks": []
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install Node.js and Express.js",
+            "description": "Set up the development environment by installing Node.js and Express.js.",
+            "dependencies": [],
+            "details": "Download and install Node.js from the official website. Initialize a new Node.js project using `npm init -y`. Install Express.js by running `npm install express` in the project directory.",
+            "status": "pending",
+            "testStrategy": "Verify the installation by creating a simple Express server and running it locally to ensure no errors occur."
+          },
+          {
+            "id": 2,
+            "title": "Create the server entry point",
+            "description": "Create the main server file and set up a basic Express server.",
+            "dependencies": [
+              "2.1"
+            ],
+            "details": "Create a new file named `server.js` or `index.js`. Import Express and initialize an Express application. Set up a basic route that returns a 'Server is running' message. Start the server on a specified port using `app.listen`.",
+            "status": "pending",
+            "testStrategy": "Run the server locally and access the basic route in a browser or Postman to confirm the server is running."
+          },
+          {
+            "id": 3,
+            "title": "Configure middleware for JSON parsing and CORS",
+            "description": "Set up middleware to handle JSON requests and enable CORS.",
+            "dependencies": [
+              "2.2"
+            ],
+            "details": "Install the `cors` package using `npm install cors`. In the server entry point, use `app.use(express.json())` to parse JSON requests and `app.use(cors())` to enable CORS.",
+            "status": "pending",
+            "testStrategy": "Send a test POST request with JSON data using Postman to verify that the middleware is correctly parsing the request body and allowing cross-origin requests."
+          },
+          {
+            "id": 4,
+            "title": "Connect to MongoDB Atlas using Mongoose",
+            "description": "Set up a connection to MongoDB Atlas using the Mongoose library.",
+            "dependencies": [
+              "2.3"
+            ],
+            "details": "Install Mongoose using `npm install mongoose`. Obtain the MongoDB Atlas connection string and use `mongoose.connect` to establish a connection in the server entry point. Add error handling to log connection success or failure.",
+            "status": "pending",
+            "testStrategy": "Run the server and verify that it connects to MongoDB Atlas successfully by checking the console logs."
+          },
+          {
+            "id": 5,
+            "title": "Test the server setup",
+            "description": "Perform end-to-end testing of the server setup.",
+            "dependencies": [
+              "2.4"
+            ],
+            "details": "Run the server locally and test the basic route, middleware, and MongoDB connection. Use Postman to send requests and verify responses. Check the MongoDB Atlas dashboard to ensure data is being stored correctly.",
+            "status": "pending",
+            "testStrategy": "Use Postman to test the server's basic route and middleware functionality. Verify that the server logs indicate a successful connection to MongoDB Atlas."
+          }
+        ]
       },
       {
         "id": 3,
@@ -36,7 +136,65 @@
           2
         ],
         "status": "pending",
-        "subtasks": []
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Set up project dependencies for authentication",
+            "description": "Install necessary libraries for password hashing and token generation, such as bcrypt and jsonwebtoken. Configure the project to use these dependencies.",
+            "dependencies": [],
+            "details": "Use npm or yarn to install bcrypt and jsonwebtoken. Ensure the project has a configuration file for managing environment variables (e.g., .env) to store sensitive information like JWT secret keys.",
+            "status": "pending",
+            "testStrategy": "Verify that bcrypt and jsonwebtoken are installed correctly by writing a small script to hash a sample password and generate a JWT token."
+          },
+          {
+            "id": 2,
+            "title": "Implement user registration endpoint",
+            "description": "Develop the POST /api/auth/register endpoint to handle user registration. Validate input data, hash the password using bcrypt, and store user details in the database.",
+            "dependencies": [
+              "3.1"
+            ],
+            "details": "Create a route handler for POST /api/auth/register. Validate input fields (e.g., email, password) using a library like Joi or express-validator. Use bcrypt to hash the password before saving it to the database. Ensure the database schema includes fields for user information.",
+            "status": "pending",
+            "testStrategy": "Write unit tests to validate input data and ensure passwords are hashed correctly. Test the endpoint with Postman to verify that user details are stored successfully."
+          },
+          {
+            "id": 3,
+            "title": "Implement user login endpoint",
+            "description": "Develop the POST /api/auth/login endpoint to authenticate users. Validate input data, check the hashed password, and generate a JWT token for successful authentication.",
+            "dependencies": [
+              "3.1",
+              "3.2"
+            ],
+            "details": "Create a route handler for POST /api/auth/login. Validate input fields (e.g., email, password). Retrieve the user from the database and compare the provided password with the hashed password using bcrypt. Generate a JWT token using jsonwebtoken and return it to the client.",
+            "status": "pending",
+            "testStrategy": "Write unit tests to validate input data, check password matching, and ensure JWT tokens are generated correctly. Test the endpoint with Postman to verify login functionality."
+          },
+          {
+            "id": 4,
+            "title": "Secure endpoints with JWT middleware",
+            "description": "Develop middleware to verify JWT tokens for protected routes. Ensure that only authenticated users can access certain endpoints.",
+            "dependencies": [
+              "3.1",
+              "3.3"
+            ],
+            "details": "Create a middleware function to decode and verify JWT tokens using jsonwebtoken. Attach this middleware to routes that require authentication. Return appropriate error messages for invalid or expired tokens.",
+            "status": "pending",
+            "testStrategy": "Write unit tests for the middleware to ensure it correctly identifies valid and invalid tokens. Test protected routes with Postman to verify access control."
+          },
+          {
+            "id": 5,
+            "title": "Write comprehensive documentation for authentication APIs",
+            "description": "Document the user registration and login endpoints, including request formats, response formats, and error handling. Provide examples for developers to integrate the APIs.",
+            "dependencies": [
+              "3.2",
+              "3.3",
+              "3.4"
+            ],
+            "details": "Use a tool like Swagger or write markdown documentation to describe the endpoints. Include details about required headers, body parameters, and expected responses. Highlight common errors and their solutions.",
+            "status": "pending",
+            "testStrategy": "Review the documentation for completeness and accuracy. Share it with a developer to ensure it is easy to understand and implement."
+          }
+        ]
       },
       {
         "id": 4,
@@ -49,7 +207,61 @@
           1
         ],
         "status": "pending",
-        "subtasks": []
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Initialize React.js Project",
+            "description": "Set up a new React.js project using Create React App.",
+            "dependencies": [],
+            "details": "Run the command `npx create-react-app frontend` in the terminal to initialize the project. Navigate to the 'frontend' directory and ensure the project runs successfully using `npm start`.",
+            "status": "pending",
+            "testStrategy": "Verify that the default React.js application runs successfully in the browser at localhost:3000."
+          },
+          {
+            "id": 2,
+            "title": "Install Required Dependencies",
+            "description": "Install React Router and Material-UI libraries for routing and UI components.",
+            "dependencies": [
+              "4.1"
+            ],
+            "details": "Run the commands `npm install react-router-dom` and `npm install @mui/material @emotion/react @emotion/styled` in the terminal to install the required libraries.",
+            "status": "pending",
+            "testStrategy": "Check the `package.json` file to ensure the dependencies are listed, and verify that the application still runs without errors."
+          },
+          {
+            "id": 3,
+            "title": "Set Up React Router",
+            "description": "Configure React Router for navigation between pages.",
+            "dependencies": [
+              "4.2"
+            ],
+            "details": "Create a `Router` component in the `src` folder. Use `BrowserRouter`, `Routes`, and `Route` components from React Router to define routes for '/login', '/register', and '/dashboard'.",
+            "status": "pending",
+            "testStrategy": "Run the application and manually navigate to '/login', '/register', and '/dashboard' in the browser to ensure the correct components are rendered."
+          },
+          {
+            "id": 4,
+            "title": "Create Placeholder Pages",
+            "description": "Create placeholder components for login, registration, and dashboard pages.",
+            "dependencies": [
+              "4.3"
+            ],
+            "details": "In the `src` folder, create three new components: `LoginPage`, `RegisterPage`, and `DashboardPage`. Each component should return a simple placeholder message (e.g., 'Login Page'). Import these components into the Router configuration.",
+            "status": "pending",
+            "testStrategy": "Verify that navigating to '/login', '/register', and '/dashboard' displays the respective placeholder messages."
+          },
+          {
+            "id": 5,
+            "title": "Integrate Material-UI Components",
+            "description": "Add basic Material-UI components to the placeholder pages.",
+            "dependencies": [
+              "4.4"
+            ],
+            "details": "Update the `LoginPage`, `RegisterPage`, and `DashboardPage` components to include basic Material-UI components such as buttons, text fields, and cards. Use the Material-UI documentation for guidance.",
+            "status": "pending",
+            "testStrategy": "Run the application and verify that Material-UI components render correctly on each page."
+          }
+        ]
       },
       {
         "id": 5,
@@ -62,7 +274,63 @@
           4
         ],
         "status": "pending",
-        "subtasks": []
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Set up React Router for role-based routing",
+            "description": "Configure React Router to handle navigation to different dashboards based on user roles (Student, College Agent, HR/Recruiter).",
+            "dependencies": [],
+            "details": "Install React Router if not already installed. Define routes for each dashboard (e.g., '/dashboard/student', '/dashboard/agent', '/dashboard/hr'). Create a placeholder component for each route. Implement a role-checking mechanism to redirect users to the appropriate route after login.",
+            "status": "pending",
+            "testStrategy": "Verify that navigating to each route renders the correct placeholder component. Test redirection logic by simulating different user roles."
+          },
+          {
+            "id": 2,
+            "title": "Create Student Dashboard component",
+            "description": "Develop a React component for the Student Dashboard with placeholder content.",
+            "dependencies": [
+              "5.1"
+            ],
+            "details": "Create a new functional component named 'StudentDashboard'. Add basic placeholder content such as a welcome message and a brief description of the dashboard. Ensure the component is styled using Material-UI or CSS.",
+            "status": "pending",
+            "testStrategy": "Render the StudentDashboard component in isolation and verify that the placeholder content is displayed correctly."
+          },
+          {
+            "id": 3,
+            "title": "Create College Agent Dashboard component",
+            "description": "Develop a React component for the College Agent Dashboard with placeholder content.",
+            "dependencies": [
+              "5.1"
+            ],
+            "details": "Create a new functional component named 'AgentDashboard'. Add basic placeholder content such as a welcome message and a brief description of the dashboard. Ensure the component is styled using Material-UI or CSS.",
+            "status": "pending",
+            "testStrategy": "Render the AgentDashboard component in isolation and verify that the placeholder content is displayed correctly."
+          },
+          {
+            "id": 4,
+            "title": "Create HR/Recruiter Dashboard component",
+            "description": "Develop a React component for the HR/Recruiter Dashboard with placeholder content.",
+            "dependencies": [
+              "5.1"
+            ],
+            "details": "Create a new functional component named 'HRDashboard'. Add basic placeholder content such as a welcome message and a brief description of the dashboard. Ensure the component is styled using Material-UI or CSS.",
+            "status": "pending",
+            "testStrategy": "Render the HRDashboard component in isolation and verify that the placeholder content is displayed correctly."
+          },
+          {
+            "id": 5,
+            "title": "Integrate dashboards with role-based routing",
+            "description": "Connect the Student, College Agent, and HR/Recruiter dashboards to the React Router routes and ensure proper redirection based on user roles.",
+            "dependencies": [
+              "5.2",
+              "5.3",
+              "5.4"
+            ],
+            "details": "Update the routing configuration to render the respective dashboard components for each role-based route. Implement a mechanism to fetch the user's role after login and redirect them to the appropriate dashboard route.",
+            "status": "pending",
+            "testStrategy": "Simulate login with different user roles and verify that the correct dashboard is displayed. Test edge cases such as invalid roles or unauthenticated users."
+          }
+        ]
       },
       {
         "id": 6,
@@ -75,7 +343,62 @@
           2
         ],
         "status": "pending",
-        "subtasks": []
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Set up Mongoose and MongoDB connection",
+            "description": "Configure the MongoDB connection using Mongoose in the project. Ensure the database is accessible and ready for schema integration.",
+            "dependencies": [],
+            "details": "Install Mongoose if not already installed (`npm install mongoose`). Create a database connection file (e.g., `db.js`) to establish a connection to MongoDB. Use environment variables to store the database URI securely. Test the connection by running the application and ensuring no connection errors occur.",
+            "status": "pending",
+            "testStrategy": "Run the application and verify that the MongoDB connection is established successfully without errors."
+          },
+          {
+            "id": 2,
+            "title": "Define College schema in Mongoose",
+            "description": "Create a Mongoose schema for the College model based on the fields specified in the PRD, such as eligibility, cut-offs, and other relevant details.",
+            "dependencies": [
+              "6.1"
+            ],
+            "details": "Create a new file (e.g., `College.js`) in the models directory. Define the schema using Mongoose's `Schema` class. Include fields like `name`, `location`, `eligibility`, `cutOffs`, and any other fields specified in the PRD. Add appropriate data types, validation rules, and default values where necessary.",
+            "status": "pending",
+            "testStrategy": "Write unit tests to validate the schema. Ensure that required fields are enforced and that invalid data is rejected."
+          },
+          {
+            "id": 3,
+            "title": "Define Job schema in Mongoose",
+            "description": "Create a Mongoose schema for the Job model based on the fields specified in the PRD, such as skills required, job description, and eligibility criteria.",
+            "dependencies": [
+              "6.1"
+            ],
+            "details": "Create a new file (e.g., `Job.js`) in the models directory. Define the schema using Mongoose's `Schema` class. Include fields like `title`, `company`, `skillsRequired`, `jobDescription`, `eligibility`, and any other fields specified in the PRD. Add appropriate data types, validation rules, and default values where necessary.",
+            "status": "pending",
+            "testStrategy": "Write unit tests to validate the schema. Ensure that required fields are enforced and that invalid data is rejected."
+          },
+          {
+            "id": 4,
+            "title": "Implement model registration in the application",
+            "description": "Register the College and Job models in the application so they can be used throughout the project.",
+            "dependencies": [
+              "6.2",
+              "6.3"
+            ],
+            "details": "Import the College and Job schemas into the main application file or a dedicated models index file. Use Mongoose's `model` method to create models from the schemas. Ensure the models are exported and accessible in other parts of the application.",
+            "status": "pending",
+            "testStrategy": "Test the model registration by importing the models in a test script and performing basic CRUD operations."
+          },
+          {
+            "id": 5,
+            "title": "Insert and validate mock data for College and Job models",
+            "description": "Insert mock data into the College and Job collections to validate the schemas and ensure data is stored correctly in MongoDB.",
+            "dependencies": [
+              "6.4"
+            ],
+            "details": "Create a script or use a testing framework to insert mock data into the College and Job collections. Ensure the data adheres to the schema definitions. Verify that the data is stored correctly in MongoDB and can be retrieved without issues.",
+            "status": "pending",
+            "testStrategy": "Run the script to insert mock data. Query the database to ensure the data is stored correctly and matches the schema definitions."
+          }
+        ]
       },
       {
         "id": 7,
@@ -88,7 +411,60 @@
           6
         ],
         "status": "pending",
-        "subtasks": []
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design Backend API for College Profile Management",
+            "description": "Create backend API endpoints to allow College Agents to create, update, and delete college profiles.",
+            "dependencies": [],
+            "details": "Define API routes for managing college profiles (e.g., POST /api/colleges, PUT /api/colleges/:id, DELETE /api/colleges/:id). Use the College model from Task 6 to interact with the MongoDB database. Implement validation for required fields such as name, location, and description.",
+            "status": "pending",
+            "testStrategy": "Write unit tests for each endpoint to ensure proper validation, database interaction, and error handling. Test endpoints using Postman for end-to-end functionality."
+          },
+          {
+            "id": 2,
+            "title": "Develop Backend API for Course Management",
+            "description": "Create backend API endpoints to allow College Agents to add, update, and delete courses under a college.",
+            "dependencies": [],
+            "details": "Define API routes for managing courses (e.g., POST /api/colleges/:collegeId/courses, PUT /api/colleges/:collegeId/courses/:courseId, DELETE /api/colleges/:collegeId/courses/:courseId). Use the College model to associate courses with a specific college. Implement validation for course fields such as name, duration, and eligibility.",
+            "status": "pending",
+            "testStrategy": "Write unit tests for each endpoint to ensure proper validation, database interaction, and error handling. Test endpoints using Postman for end-to-end functionality."
+          },
+          {
+            "id": 3,
+            "title": "Create Frontend Form for College Profile Management",
+            "description": "Develop a frontend form to allow College Agents to input and edit college profile details.",
+            "dependencies": [
+              "7.1"
+            ],
+            "details": "Use a modern frontend framework (e.g., React) to create a form with fields for name, location, and description. Implement form validation and connect the form to the backend API endpoints for creating and updating college profiles.",
+            "status": "pending",
+            "testStrategy": "Test the form by submitting valid and invalid data. Verify that the data is sent to the backend and that error messages are displayed for invalid inputs."
+          },
+          {
+            "id": 4,
+            "title": "Create Frontend Form for Course Management",
+            "description": "Develop a frontend form to allow College Agents to input and edit course details for a specific college.",
+            "dependencies": [
+              "7.2"
+            ],
+            "details": "Use a modern frontend framework (e.g., React) to create a form with fields for course name, duration, and eligibility. Implement form validation and connect the form to the backend API endpoints for creating and updating courses.",
+            "status": "pending",
+            "testStrategy": "Test the form by submitting valid and invalid data. Verify that the data is sent to the backend and that error messages are displayed for invalid inputs."
+          },
+          {
+            "id": 5,
+            "title": "Implement Dashboard View for College Profiles and Courses",
+            "description": "Create a dashboard view to display a list of colleges and their associated courses, with options to edit or delete them.",
+            "dependencies": [
+              "7.3",
+              "7.4"
+            ],
+            "details": "Use a modern frontend framework (e.g., React) to create a dashboard that fetches data from the backend APIs and displays it in a user-friendly format. Include buttons or links for editing and deleting colleges and courses.",
+            "status": "pending",
+            "testStrategy": "Test the dashboard by verifying that it correctly displays data fetched from the backend. Ensure that edit and delete actions work as expected and that the UI updates dynamically."
+          }
+        ]
       },
       {
         "id": 8,
@@ -101,7 +477,62 @@
           6
         ],
         "status": "pending",
-        "subtasks": []
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design Backend API for Job Posting",
+            "description": "Develop a backend API endpoint to allow HRs to post job listings.",
+            "dependencies": [],
+            "details": "Create a POST endpoint in the backend server using Node.js and Express.js. Define a Mongoose schema for job listings with fields such as title, description, requirements, and location. Implement input validation and error handling. Save job postings to the MongoDB database.",
+            "status": "pending",
+            "testStrategy": "Use Postman to test the API endpoint with valid and invalid data. Verify that job postings are saved correctly in the database."
+          },
+          {
+            "id": 2,
+            "title": "Design Backend API for Viewing Applications",
+            "description": "Develop a backend API endpoint to allow HRs to view applications submitted for their job postings.",
+            "dependencies": [
+              "8.1"
+            ],
+            "details": "Create a GET endpoint in the backend server to retrieve applications based on job ID. Define a Mongoose schema for applications with fields such as applicant name, resume link, and job ID. Implement query parameters for filtering and pagination.",
+            "status": "pending",
+            "testStrategy": "Use Postman to test the API endpoint with various job IDs. Verify that the correct applications are retrieved and that pagination works as expected."
+          },
+          {
+            "id": 3,
+            "title": "Create Frontend Form for Job Posting",
+            "description": "Develop a React component to allow HRs to input job details and submit them via the job posting API.",
+            "dependencies": [
+              "8.1"
+            ],
+            "details": "Create a React form component with fields for job title, description, requirements, and location. Use Axios to send form data to the job posting API. Add client-side validation for required fields.",
+            "status": "pending",
+            "testStrategy": "Test the form by submitting valid and invalid data. Verify that successful submissions save the job posting and display a confirmation message."
+          },
+          {
+            "id": 4,
+            "title": "Create Frontend Interface for Viewing Applications",
+            "description": "Develop a React component to display a list of applications for a specific job posting.",
+            "dependencies": [
+              "8.2"
+            ],
+            "details": "Create a React component that fetches applications from the viewing applications API using Axios. Display the applications in a table with columns for applicant name, resume link, and other relevant details. Add pagination controls for navigating through large datasets.",
+            "status": "pending",
+            "testStrategy": "Test the interface by loading applications for various job postings. Verify that the data is displayed correctly and pagination works as expected."
+          },
+          {
+            "id": 5,
+            "title": "Integrate Job Posting and Application Management Features",
+            "description": "Combine the job posting and application viewing features into the HR dashboard.",
+            "dependencies": [
+              "8.3",
+              "8.4"
+            ],
+            "details": "Update the HR dashboard to include navigation links to the job posting form and application management interface. Ensure that the components are styled consistently and integrate seamlessly with the dashboard layout.",
+            "status": "pending",
+            "testStrategy": "Test the HR dashboard by navigating between the job posting and application management features. Verify that all components function correctly and the user experience is smooth."
+          }
+        ]
       },
       {
         "id": 9,
@@ -115,7 +546,61 @@
           8
         ],
         "status": "pending",
-        "subtasks": []
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design and Implement Search Components for Colleges and Jobs",
+            "description": "Create frontend components to allow students to search for colleges and jobs.",
+            "dependencies": [],
+            "details": "Design and develop React components for the search functionality. Include input fields for search queries and a button to trigger the search. Use mock data initially to populate the search results.",
+            "status": "pending",
+            "testStrategy": "Verify that the search components render correctly and display mock data results based on user input."
+          },
+          {
+            "id": 2,
+            "title": "Develop Filtering Functionality for Colleges and Jobs",
+            "description": "Implement filtering options for search results based on marks, location, and skills.",
+            "dependencies": [
+              "9.1"
+            ],
+            "details": "Add dropdowns or checkboxes for filtering criteria (marks, location, skills) to the search components. Update the search logic to filter results based on selected criteria.",
+            "status": "pending",
+            "testStrategy": "Test that the filtering options work correctly with mock data and display results that match the selected criteria."
+          },
+          {
+            "id": 3,
+            "title": "Integrate Backend APIs for Search and Filtering",
+            "description": "Connect the frontend search and filtering components to backend APIs to fetch real data.",
+            "dependencies": [
+              "9.2"
+            ],
+            "details": "Use Axios or Fetch API to call backend endpoints for searching colleges and jobs. Update the frontend to display results fetched from the backend.",
+            "status": "pending",
+            "testStrategy": "Test API integration by verifying that the frontend displays data fetched from the backend based on search and filtering criteria."
+          },
+          {
+            "id": 4,
+            "title": "Implement Pagination for Search Results",
+            "description": "Add pagination functionality to handle large sets of search results.",
+            "dependencies": [
+              "9.3"
+            ],
+            "details": "Implement pagination controls (e.g., next/previous buttons) in the frontend. Update the backend API calls to support pagination by passing page numbers and limits as query parameters.",
+            "status": "pending",
+            "testStrategy": "Verify that pagination controls work correctly and display the appropriate subset of results for each page."
+          },
+          {
+            "id": 5,
+            "title": "Enhance UI/UX for Search and Filtering Features",
+            "description": "Improve the user interface and experience for the search and filtering components.",
+            "dependencies": [
+              "9.4"
+            ],
+            "details": "Apply CSS styling to make the search and filtering components visually appealing. Ensure the layout is responsive and user-friendly. Add loading indicators for API calls.",
+            "status": "pending",
+            "testStrategy": "Test the UI on different screen sizes and verify that it is responsive. Ensure that loading indicators appear during data fetching."
+          }
+        ]
       },
       {
         "id": 10,
@@ -128,7 +613,53 @@
           9
         ],
         "status": "pending",
-        "subtasks": []
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Set up notification database schema",
+            "description": "Define a MongoDB schema for storing notification data, including fields like user ID, message, type, status (read/unread), and timestamp.",
+            "dependencies": [],
+            "details": "Use Mongoose to create a 'Notification' schema. Include fields for user ID (reference to the User model), message (string), type (enum for notification type), status (boolean for read/unread), and timestamp (Date). Ensure proper validation and default values where applicable.",
+            "status": "pending",
+            "testStrategy": "Write unit tests to validate schema constraints. Insert mock notifications and verify data integrity in the database."
+          },
+          {
+            "id": 2,
+            "title": "Implement backend notification trigger logic",
+            "description": "Develop backend logic to trigger notifications based on specific events, such as new job postings or student applications.",
+            "dependencies": [],
+            "details": "Create a service layer in the backend to handle notification creation. For each event (e.g., new job posting), identify the target users and generate notifications by inserting records into the Notification collection. Use event-driven architecture or middleware to decouple event handling.",
+            "status": "pending",
+            "testStrategy": "Simulate events like new job postings or student applications and verify that the correct notifications are created in the database."
+          },
+          {
+            "id": 3,
+            "title": "Set up real-time notification delivery",
+            "description": "Integrate WebSocket or a similar technology to deliver notifications in real-time to connected clients.",
+            "dependencies": [],
+            "details": "Use a library like Socket.IO to establish WebSocket connections between the backend and frontend. Implement server-side logic to emit notifications to specific users when new notifications are created. Ensure proper authentication and authorization for WebSocket connections.",
+            "status": "pending",
+            "testStrategy": "Test real-time delivery by triggering notifications and verifying that connected clients receive them instantly. Check for proper handling of unauthorized connections."
+          },
+          {
+            "id": 4,
+            "title": "Develop frontend notification display components",
+            "description": "Create React components to display notifications, including a notification bell icon and a dropdown list of recent notifications.",
+            "dependencies": [],
+            "details": "Use Material-UI to design a notification bell icon that shows a badge with the count of unread notifications. Implement a dropdown that displays a list of recent notifications with options to mark them as read. Fetch notifications from the backend using an API call.",
+            "status": "pending",
+            "testStrategy": "Verify that the notification bell updates correctly when new notifications are received. Test the dropdown functionality, including marking notifications as read."
+          },
+          {
+            "id": 5,
+            "title": "Implement notification read status update",
+            "description": "Allow users to mark notifications as read and update the backend to reflect the change.",
+            "dependencies": [],
+            "details": "Add an API endpoint to update the read status of notifications. On the frontend, provide a button or click action in the notification dropdown to mark notifications as read. Ensure the UI updates immediately and reflects the change in the database.",
+            "status": "pending",
+            "testStrategy": "Test the API endpoint with mock requests to ensure the read status is updated correctly. Verify that the frontend updates the notification badge and dropdown list appropriately."
+          }
+        ]
       }
     ],
     "metadata": {
