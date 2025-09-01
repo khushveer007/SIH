@@ -728,11 +728,79 @@
             "testStrategy": "Review the documentation by following it to set up a fresh deployment on Heroku and VPS and confirm that all environment variables are applied correctly"
           }
         ]
+      },
+      {
+        "id": 12,
+        "title": "Create Modern Landing Page with Magic UI and Aceternity UI",
+        "description": "Design and implement a responsive, animated landing page that showcases SIH platform features, includes a hero section, feature highlights, and interactive user role selection using Magic UI and Aceternity UI components.",
+        "details": "1. Install and configure Magic UI and Aceternity UI packages via npm or yarn.  \n2. In src/components/LandingPage.jsx, scaffold a React functional component.  \n3. Build a full-screen hero section using a gradient or video background, Magic UI Typography for headline/subheadline, and Aceternity UI Button components for CTAs.  \n4. Develop a feature highlights section with Aceternity UI Card components, including icons, titles, and descriptions. Use CSS-in-JS (Emotion or styled-components) for gradient backgrounds and modern design patterns.  \n5. Implement a user role selection module with selectable cards or toggles for Student, College Agent, and HR/Recruiter. Add hover and selected-state animations.  \n6. Integrate Framer Motion (or Magic UI’s animation APIs) for entrance transitions, on-scroll reveals, and smooth hover effects.  \n7. Ensure responsive behavior at key breakpoints (mobile, tablet, desktop) using CSS Grid/Flexbox and Magic UI’s breakpoint utilities.  \n8. Optimize assets (lazy-load images, compress SVGs) and utilize React.lazy/Suspense for code-splitting of heavy sections.  \n9. Enforce accessibility: proper aria labels on interactive elements, keyboard focus states, and color contrast meeting WCAG AA standards.  \n10. Add smooth scroll behavior to internal anchors using react-scroll or native scroll-behavior.",
+        "testStrategy": "1. Unit test LandingPage component with Jest and React Testing Library: verify hero text, feature cards, and role buttons render correctly.  \n2. Snapshot tests for visual regressions on major UI states (default, hover, selected roles).  \n3. Accessibility testing with jest-axe: ensure no violations for landmarks, buttons, and color contrast.  \n4. E2E testing with Cypress: load '/', assert hero section visible, scroll to features, click each role card and confirm navigation to login or dashboard route.  \n5. Responsive checks with Cypress viewport presets to confirm layout adapts at 320px, 768px, and 1440px widths.  \n6. Performance audit using Lighthouse CLI: target Performance ≥ 90, Accessibility ≥ 90, and Best Practices ≥ 90.  \n7. Validate animations trigger on scroll/hover via Cypress animation-spy plugin or inspecting CSS classes/transforms.",
+        "status": "pending",
+        "dependencies": [
+          1
+        ],
+        "priority": "medium",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install and Configure UI Libraries",
+            "description": "Set up Magic UI and Aceternity UI in the project",
+            "dependencies": [],
+            "details": "Use npm or yarn to install @magic-ui and @aceternity/ui packages. Configure the theme providers at the root of the React app, update package.json, and verify correct versioning.",
+            "status": "pending",
+            "testStrategy": "Import components in a test file and verify the app compiles without errors and basic UI components render."
+          },
+          {
+            "id": 2,
+            "title": "Scaffold LandingPage Component",
+            "description": "Create the LandingPage functional component",
+            "dependencies": [
+              "12.1"
+            ],
+            "details": "In src/components/LandingPage.jsx, scaffold a React functional component with placeholder sections for Hero, Features, and Role Selection. Export the component and ensure it's imported in App.js.",
+            "status": "pending",
+            "testStrategy": "Write a Jest and React Testing Library test to confirm the LandingPage component renders without crashing and matches a basic snapshot."
+          },
+          {
+            "id": 3,
+            "title": "Create Hero Section",
+            "description": "Implement the full-screen hero section",
+            "dependencies": [
+              "12.2"
+            ],
+            "details": "Build a full-screen section with a gradient or video background. Use Magic UI Typography for the headline and subheadline, and Aceternity UI Button components for primary and secondary CTAs. Style using CSS-in-JS.",
+            "status": "pending",
+            "testStrategy": "Use snapshot testing to verify the hero background, headlines, and CTA buttons render correctly. Check that button click handlers are present."
+          },
+          {
+            "id": 4,
+            "title": "Develop Feature Highlights Section",
+            "description": "Build the features showcase using Aceternity UI Cards",
+            "dependencies": [
+              "12.2"
+            ],
+            "details": "Create a grid layout of Aceternity UI Card components, each containing an icon, title, and description. Use Emotion or styled-components for gradient backgrounds and modern styling patterns.",
+            "status": "pending",
+            "testStrategy": "Write unit tests to verify the correct number of feature cards render and that each card displays title, description, and icon props properly."
+          },
+          {
+            "id": 5,
+            "title": "Implement User Role Selection, Animations, Responsiveness, and Accessibility",
+            "description": "Add role selection module with animations and ensure responsive and accessible design",
+            "dependencies": [
+              "12.3",
+              "12.4"
+            ],
+            "details": "Implement selectable cards or toggles for Student, College Agent, and HR/Recruiter. Add hover and selected-state animations using Framer Motion or Magic UI animation APIs. Ensure responsive behavior across mobile, tablet, and desktop with CSS Grid/Flexbox and Magic UI breakpoint utilities. Optimize assets with React.lazy/Suspense, lazy-load images, and compress SVGs. Enforce WCAG AA accessibility with ARIA labels, keyboard focus states, and color contrast.",
+            "status": "pending",
+            "testStrategy": "Write interaction tests for selecting roles, perform accessibility checks with jest-axe, and capture responsive snapshots at key breakpoints."
+          }
+        ]
       }
     ],
     "metadata": {
       "created": "2025-08-31T22:58:00.456Z",
-      "updated": "2025-09-01T21:16:51.776Z",
+      "updated": "2025-09-01T22:35:50.472Z",
       "description": "Tasks for master context"
     }
   }
