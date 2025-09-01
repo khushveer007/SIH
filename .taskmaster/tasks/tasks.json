@@ -9,7 +9,7 @@
         "testStrategy": "Verify that the repository is accessible, CI/CD pipelines trigger correctly, and the folder structure is consistent with the PRD.",
         "priority": "high",
         "dependencies": [],
-        "status": "in-progress",
+        "status": "done",
         "subtasks": [
           {
             "id": 1,
@@ -17,7 +17,7 @@
             "description": "Initialize a new Git repository for the project.",
             "dependencies": [],
             "details": "Create a new repository on GitHub. Clone the repository locally and initialize it with a .gitignore file suitable for Node.js and React.js projects.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Verify that the repository is accessible on GitHub and can be cloned locally."
           },
           {
@@ -26,7 +26,7 @@
             "description": "Create folders for frontend and backend within the repository.",
             "dependencies": [],
             "details": "Inside the cloned repository, create two main folders: 'frontend' for React.js and 'backend' for Node.js. Add placeholder README.md files in each folder to describe their purpose.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Ensure that the folder structure matches the requirements and README files are present in both folders."
           },
           {
@@ -35,7 +35,7 @@
             "description": "Set up the base projects for frontend and backend development.",
             "dependencies": [],
             "details": "Navigate to the 'frontend' folder and initialize a React.js project using Create React App. Navigate to the 'backend' folder and initialize a Node.js project using npm init. Add basic dependencies like express for backend and react-router for frontend.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Verify that both projects can be started independently without errors."
           },
           {
@@ -44,7 +44,7 @@
             "description": "Set up GitHub Actions workflows for CI/CD pipelines.",
             "dependencies": [],
             "details": "Create GitHub Actions YAML files in the repository's '.github/workflows' folder. Configure workflows to run tests and build processes for both frontend and backend on each push to the main branch.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Push changes to the repository and verify that the workflows execute successfully."
           },
           {
@@ -53,7 +53,7 @@
             "description": "Add a main README file to the repository and update README files in frontend and backend folders.",
             "dependencies": [],
             "details": "Write a main README.md file at the root of the repository to describe the project, its folder structure, and setup instructions. Update the README files in 'frontend' and 'backend' folders with specific setup and usage instructions for each project.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Ensure that all README files are clear, complete, and provide accurate setup instructions."
           }
         ]
@@ -660,11 +660,79 @@
             "testStrategy": "Test the API endpoint with mock requests to ensure the read status is updated correctly. Verify that the frontend updates the notification badge and dropdown list appropriately."
           }
         ]
+      },
+      {
+        "id": 11,
+        "title": "Deployment Setup for SIH Platform",
+        "description": "Set up deployment pipelines for the SIH platform on Heroku and VPS, including environment configurations, build optimizations, and production database setup.",
+        "details": "1. Configure deployment pipelines for both Heroku and VPS environments. \n2. For Heroku: Set up Procfile, environment variables, and build scripts for React frontend and Node.js backend. Ensure MongoDB Atlas is used for the production database. \n3. For VPS: Configure Nginx as a reverse proxy, set up PM2 for Node.js process management, and deploy the React frontend as a static site. Connect to MongoDB Atlas for production. \n4. Optimize builds for production: Minify React assets, enable gzip compression, and configure caching headers. \n5. Document environment variable requirements for both deployment methods, including API keys, database connection strings, and other sensitive information.",
+        "testStrategy": "1. Deploy the platform to Heroku and verify that the frontend, backend, and database are functioning correctly. \n2. Deploy the platform to a VPS and verify the same functionality. \n3. Test environment variable configurations by simulating production scenarios. \n4. Verify build optimizations by checking asset sizes, compression, and caching behavior. \n5. Perform end-to-end testing to ensure the platform works seamlessly in both deployment environments.",
+        "status": "pending",
+        "dependencies": [
+          2,
+          4,
+          6
+        ],
+        "priority": "medium",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Heroku Deployment Pipeline Setup",
+            "description": "Configure the deployment pipeline on Heroku for the SIH platform",
+            "dependencies": [],
+            "details": "Create a Procfile, set up environment variables for React frontend and Node.js backend, and write build scripts to deploy to Heroku. Integrate MongoDB Atlas as the production database by configuring the connection string in Heroku settings.",
+            "status": "pending",
+            "testStrategy": "Deploy to a Heroku review app and verify that the frontend and backend are running and connected to the MongoDB Atlas instance"
+          },
+          {
+            "id": 2,
+            "title": "VPS Deployment Environment Setup",
+            "description": "Set up the deployment environment on a VPS server",
+            "dependencies": [],
+            "details": "Install and configure Nginx as a reverse proxy, set up PM2 for Node.js process management, and deploy the React frontend as a static site on the VPS. Configure the application to use MongoDB Atlas for production database connections.",
+            "status": "pending",
+            "testStrategy": "SSH into the VPS, start the application via PM2, and verify that both frontend and backend are accessible and connected to MongoDB Atlas"
+          },
+          {
+            "id": 3,
+            "title": "Production Build Optimization",
+            "description": "Optimize builds for production performance",
+            "dependencies": [
+              "11.1",
+              "11.2"
+            ],
+            "details": "Minify React assets, enable gzip compression on the server, and configure appropriate caching headers in both Nginx (for VPS) and Heroku to improve load times and reduce bandwidth.",
+            "status": "pending",
+            "testStrategy": "Load the deployed application in production mode and use Lighthouse or similar tools to verify asset sizes, gzip compression, and caching effectiveness"
+          },
+          {
+            "id": 4,
+            "title": "MongoDB Atlas Production Database Configuration",
+            "description": "Set up and secure the MongoDB Atlas cluster for production",
+            "dependencies": [],
+            "details": "Create or configure a MongoDB Atlas cluster, whitelist IP addresses (Heroku and VPS), set up user roles and permissions, and generate production connection strings for both deployment methods.",
+            "status": "pending",
+            "testStrategy": "Use a test script on both Heroku and VPS environments to connect to the Atlas cluster and perform CRUD operations successfully"
+          },
+          {
+            "id": 5,
+            "title": "Environment Variable Documentation",
+            "description": "Document environment variable requirements for both deployment methods",
+            "dependencies": [
+              "11.1",
+              "11.2",
+              "11.4"
+            ],
+            "details": "List all required environment variables, including API keys, database connection strings, and other sensitive settings for both Heroku and VPS deployments. Provide examples and instructions for secure storage.",
+            "status": "pending",
+            "testStrategy": "Review the documentation by following it to set up a fresh deployment on Heroku and VPS and confirm that all environment variables are applied correctly"
+          }
+        ]
       }
     ],
     "metadata": {
       "created": "2025-08-31T22:58:00.456Z",
-      "updated": "2025-09-01T19:11:22.926Z",
+      "updated": "2025-09-01T20:10:44.533Z",
       "description": "Tasks for master context"
     }
   }
