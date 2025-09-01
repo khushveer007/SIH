@@ -68,7 +68,7 @@
         "dependencies": [
           1
         ],
-        "status": "pending",
+        "status": "in-progress",
         "subtasks": [
           {
             "id": 1,
@@ -76,7 +76,7 @@
             "description": "Set up the development environment by installing Node.js and Express.js.",
             "dependencies": [],
             "details": "Download and install Node.js from the official website. Initialize a new Node.js project using `npm init -y`. Install Express.js by running `npm install express` in the project directory.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Verify the installation by creating a simple Express server and running it locally to ensure no errors occur."
           },
           {
@@ -87,7 +87,7 @@
               "2.1"
             ],
             "details": "Create a new file named `server.js` or `index.js`. Import Express and initialize an Express application. Set up a basic route that returns a 'Server is running' message. Start the server on a specified port using `app.listen`.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Run the server locally and access the basic route in a browser or Postman to confirm the server is running."
           },
           {
@@ -98,7 +98,7 @@
               "2.2"
             ],
             "details": "Install the `cors` package using `npm install cors`. In the server entry point, use `app.use(express.json())` to parse JSON requests and `app.use(cors())` to enable CORS.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Send a test POST request with JSON data using Postman to verify that the middleware is correctly parsing the request body and allowing cross-origin requests."
           },
           {
@@ -109,7 +109,7 @@
               "2.3"
             ],
             "details": "Install Mongoose using `npm install mongoose`. Obtain the MongoDB Atlas connection string and use `mongoose.connect` to establish a connection in the server entry point. Add error handling to log connection success or failure.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Run the server and verify that it connects to MongoDB Atlas successfully by checking the console logs."
           },
           {
@@ -120,7 +120,7 @@
               "2.4"
             ],
             "details": "Run the server locally and test the basic route, middleware, and MongoDB connection. Use Postman to send requests and verify responses. Check the MongoDB Atlas dashboard to ensure data is being stored correctly.",
-            "status": "pending",
+            "status": "in-progress",
             "testStrategy": "Use Postman to test the server's basic route and middleware functionality. Verify that the server logs indicate a successful connection to MongoDB Atlas."
           }
         ]
@@ -732,7 +732,7 @@
     ],
     "metadata": {
       "created": "2025-08-31T22:58:00.456Z",
-      "updated": "2025-09-01T20:10:44.533Z",
+      "updated": "2025-09-01T20:16:05.502Z",
       "description": "Tasks for master context"
     }
   }
