@@ -134,8 +134,7 @@ ehthumbs.db
 Desktop.ini
 
 # VS Code
-.vscode/settings.json
-.vscode/launch.json
+.vscode/
 
 # Taskmaster (keep config but ignore generated files)
 .taskmaster/tasks/
