@@ -68,7 +68,7 @@
         "dependencies": [
           1
         ],
-        "status": "in-progress",
+        "status": "done",
         "subtasks": [
           {
             "id": 1,
@@ -120,7 +120,7 @@
               "2.4"
             ],
             "details": "Run the server locally and test the basic route, middleware, and MongoDB connection. Use Postman to send requests and verify responses. Check the MongoDB Atlas dashboard to ensure data is being stored correctly.",
-            "status": "in-progress",
+            "status": "done",
             "testStrategy": "Use Postman to test the server's basic route and middleware functionality. Verify that the server logs indicate a successful connection to MongoDB Atlas."
           }
         ]
@@ -732,7 +732,7 @@
     ],
     "metadata": {
       "created": "2025-08-31T22:58:00.456Z",
-      "updated": "2025-09-01T20:16:05.502Z",
+      "updated": "2025-09-01T20:49:53.019Z",
       "description": "Tasks for master context"
     }
   }
